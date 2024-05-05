@@ -1,0 +1,6 @@
+@oabnet_HostAddress = http://localhost:5255
+
+GET {{oabnet_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

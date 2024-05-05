@@ -1,0 +1,44 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="advogadoForm">
+
+    <div class="row">
+        <mat-form-field appearance="fill">
+            <mat-label>Nome da Cidade</mat-label>
+            <input formControlName="namecity" matInput>
+            <mat-error *ngIf="advogadoForm.get('namecity')!.hasError('required')">Nome é obrigatório</mat-error>
+            <mat-error *ngIf="advogadoForm.get('namecity')!.hasError('minLength')">Nome precisa de pelo menos 2
+                caracteres
+            </mat-error>
+        </mat-form-field>
+
+
+
+        dcadasdasdadadd
+
+        <mat-form-field appearance="fill">
+            <mat-label>Numero da cidade</mat-label>
+            <input formControlName="numbercity" matInput type="number">
+            <mat-error *ngIf="advogadoForm.get('numbercity')!.hasError('required')">Numero da cidade é obrigatório
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div class="row">
+        <mat-form-field appearance="fill">
+            <mat-label>Nome da Cidade</mat-label>
+            <input formControlName="namecity" matInput>
+            <mat-error *ngIf="advogadoForm.get('namecity')!.hasError('required')">Nome é obrigatório</mat-error>
+            <mat-error *ngIf="advogadoForm.get('namecity')!.hasError('minLength')">Nome precisa de pelo menos 2
+                caracteres
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Numero da cidade</mat-label>
+            <input formControlName="numbercity" matInput type="number">
+            <mat-error *ngIf="advogadoForm.get('numbercity')!.hasError('required')">Numero da cidade é obrigatório
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <button [disabled]="!advogadoForm.valid" color="primary" mat-raised-button type="submit">Registrar</button>
+</form>

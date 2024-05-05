@@ -1,0 +1,25 @@
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Editar</th>
+        <th>Excluir</th>
+    </tr>
+    <tr *ngFor="let usuario of listUsuarios">
+        <td>{{ usuario.id }}</td>
+        <td>{{ usuario.name }}</td>
+        <td>{{ usuario.email }}</td>
+        <td>
+            <button [routerLink]="'editar/usuario/'+usuario.id" mat-button>Editar</button>
+        </td>
+        <td>
+            <button mat-button (click)="deleteUsuario(usuario.id.toString())">Excluir</button>
+        </td>
+    </tr>
+</table>
+<mat-paginator [length]="listUsuarios.length"
+               [pageSizeOptions]="[5, 10, 25, 100]"
+               [pageSize]="10"
+               aria-label="Select page">
+</mat-paginator>

@@ -1,0 +1,22 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="cidadeForm">
+
+    <div class="row">
+        <mat-form-field appearance="fill">
+            <mat-label>Nome da Cidade</mat-label>
+            <input formControlName="namecity" matInput>
+            <mat-error *ngIf="cidadeForm.get('namecity')!.hasError('required')">Nome é obrigatório</mat-error>
+            <mat-error *ngIf="cidadeForm.get('namecity')!.hasError('minLength')">Nome precisa de pelo menos 2
+                caracteres
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Numero da cidade</mat-label>
+            <input formControlName="numbercity" matInput type="number">
+            <mat-error *ngIf="cidadeForm.get('numbercity')!.hasError('required')">Numero da cidade é obrigatório
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <button [disabled]="!cidadeForm.valid" color="primary" mat-raised-button type="submit">Registrar</button>
+</form>

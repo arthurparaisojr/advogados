@@ -1,0 +1,41 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="usuarioForm">
+
+    <div class="row">
+        <mat-form-field appearance="fill">
+            <mat-label>Nome</mat-label>
+            <input formControlName="name" matInput>
+            <mat-error *ngIf="usuarioForm.get('name')!.hasError('required')">Nome é obrigatório</mat-error>
+            <mat-error *ngIf="usuarioForm.get('name')!.hasError('minLength')">Nome precisa de pelo menos 2 caracteres
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input formControlName="email" matInput>
+            <mat-error *ngIf="usuarioForm.get('email')!.hasError('required')">Email é obrigatório</mat-error>
+            <mat-error *ngIf="usuarioForm.get('email')!.hasError('email')">Formato de email inválido</mat-error>
+        </mat-form-field>
+    </div>
+
+    <div class="row">
+        <mat-form-field appearance="fill">
+            <mat-label>Senha</mat-label>
+            <input formControlName="password" matInput type="password">
+            <mat-error *ngIf="usuarioForm.get('password')!.hasError('required')">Senha é obrigatória</mat-error>
+            <mat-error *ngIf="usuarioForm.get('password')!.hasError('minLength')">Senha precisa de pelo menos 6
+                caracteres
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Confirmar Senha</mat-label>
+            <input formControlName="confirmPassword" matInput type="password">
+            <mat-error *ngIf="usuarioForm.get('confirmPassword')!.hasError('required')">Confirmação de senha é
+                obrigatória
+            </mat-error>
+            <mat-error *ngIf="usuarioForm.hasError('mismatch')">Senhas não coincidem</mat-error>
+        </mat-form-field>
+    </div>
+
+    <button [disabled]="!usuarioForm.valid" color="primary" mat-raised-button type="submit">Registrar</button>
+</form>
